@@ -1,6 +1,7 @@
 import { checkpath } from "./checkPath.js";
 import path from "path";
 export const createPath = async (newPath, currentDirectory) => {
+  if(!newPath) return false;
   if (path.isAbsolute(newPath)) {
     let n = path.normalize(currentDirectory).indexOf(path.normalize(newPath));
     if (n != -1)
@@ -14,5 +15,5 @@ export const createPath = async (newPath, currentDirectory) => {
     let tempdir = path.normalize(path.join(currentDirectory, newPath));
     if (await checkpath(tempdir)) return tempdir;
   }
-  return currentDirectory;
+  return false;
 };

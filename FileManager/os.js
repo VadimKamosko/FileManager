@@ -13,7 +13,7 @@ export const osinput = async (param) => {
 
   switch (param) {
     case "--cpus":
-      process.stdout.write(os.cpus().length + "\n");
+      os.cpus().map(el=>console.log(el))
       break;
     case "--homedir":
       process.stdout.write(os.homedir() + "\n");

@@ -7,15 +7,13 @@ export const list = async (path) => {
   try {
     fs.access(path, function (err) {
       if (err && err.code === "ENOENT") {
-        console.log("FS operation failed hered");
+        console.log("Operation failed");
       }
     });
     const files = await readdir(path, (err) => {
-      if (err) console.log("FS operation failed");
+      if (err) console.log("Operation failed");
     });
-    for (const file of files) {
-      console.log(file);
-    }
+    console.log(files)
   } catch (e) {
     console.log(e);
   }

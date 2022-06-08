@@ -1,7 +1,3 @@
-// const fs = require("fs/promises");
-// const deleteFile = require('./delete')
-// const { constants } = require("fs");
-
 import { access, copyFile } from "node:fs/promises";
 import { remove } from "./delete.js";
 import { constants } from "fs";
@@ -21,6 +17,6 @@ export const copy = async (PathToFile, newPath, isDelete) => {
       remove(PathToFile);
     }
   } catch (err) {
-    console.error("Error copy");
+    console.error("operation failed");
   }
 };
