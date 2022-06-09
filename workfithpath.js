@@ -10,6 +10,7 @@ import { compress } from "./zip/compress.js";
 import { decompress } from "./zip/decompress.js";
 import { createPath } from "./createPath.js";
 import { osinput } from "./os.js";
+import  os  from "os";
 
 let currentDirectory = os.homedir();
 let Errormsg = "Operation failed";
