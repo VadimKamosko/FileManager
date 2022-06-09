@@ -1,4 +1,3 @@
-// const { createReadStream } = require("fs");
 import { createReadStream } from "fs";
 
 export const read = async (path) => {
@@ -9,7 +8,7 @@ export const read = async (path) => {
       res(chunk.toString());
     });
     ReadStreams.on("error", (e) => {
-      console.log("operation failed");
+      console.log("Operation failed");
     });
   });
 };

@@ -5,13 +5,13 @@ export const rename = async (oldName,newName) => {
     let newPath = path.join(dirname(oldName),newName)
     fs.access(newPath, function (err) {
       if (!err) {
-        console.log("No such file'")
+        console.log("Operation failed")
       }
       fs.rename(
         oldName,
         newPath,
         (err) => {
-          if (err) console.log('Error rename');
+          if (err) console.log("Operation failed");
         }
       );
     });
