@@ -10,7 +10,7 @@ import { compress } from "./zip/compress.js";
 import { decompress } from "./zip/decompress.js";
 import { createPath } from "./createPath.js";
 import { osinput } from "./os.js";
-import  os  from "os";
+import os from "os";
 
 let currentDirectory = os.homedir();
 let Errormsg = "Operation failed";
@@ -83,11 +83,11 @@ export const pathWork = async (param) => {
       currentDirectory = path.parse(currentDirectory).dir;
       process.stdout.write(currentDirectory + "\n");
       break;
-    case "exit":
+    case ".exit":
       console.log(`Thank you for using File Manager, ${process.env.username}!`);
       process.exit();
     case "os":
-      if (osinput(param[1])) return currentDirectory;
+      if (await osinput(param[1])) return currentDirectory;
       return false;
     default:
       return false;

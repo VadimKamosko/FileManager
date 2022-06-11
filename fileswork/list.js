@@ -1,6 +1,3 @@
-// const { readdir } = require("node:fs/promises");
-// const fs = require("fs");
-
 import fs from 'fs'
 import { readdir } from 'fs/promises';
 export const list = async (path) => {

@@ -17,7 +17,6 @@ export const osinput = async (param) => {
       process.stdout.write(JSON.stringify(os.EOL) + "\n");
       break;
     default:
-      process.stdout.write("Incorrect input");
       return false;
   }
   return true;
