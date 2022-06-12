@@ -10,9 +10,9 @@ import { compress } from "./zip/compress.js";
 import { decompress } from "./zip/decompress.js";
 import { createPath } from "./createPath.js";
 import { osinput } from "./os.js";
+import os from "os";
 
-let currentDirectory = "F:\\project\\rss\\FileManager";
-// let currentDirectory = os.homedir();
+let currentDirectory = os.homedir();
 let Errormsg = "Operation failed";
 console.log(`You are currently in ${currentDirectory}`);
 
@@ -73,7 +73,7 @@ export const pathWork = async (param) => {
     case "decompress":
       pathFile = await createPath(param[1], currentDirectory);
       pathcompressFile = await createPath(param[2], currentDirectory);
-      if (!pathFile || !pathcompressFile) console.log("Operation faild");
+      if (!pathFile || !pathcompressFile) console.log(Errormsg);
       else decompress(pathFile, pathcompressFile);
       break;
     case "ls":
@@ -83,8 +83,11 @@ export const pathWork = async (param) => {
       currentDirectory = path.parse(currentDirectory).dir;
       process.stdout.write(currentDirectory + "\n");
       break;
+    case ".exit":
+      console.log(`Thank you for using File Manager, ${process.env.username}!`);
+      process.exit();
     case "os":
-      if (osinput(param[1])) return currentDirectory;
+      if (await osinput(param[1])) return currentDirectory;
       return false;
     default:
       return false;

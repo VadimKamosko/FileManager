@@ -17,6 +17,6 @@ export const copy = async (PathToFile, newPath, isDelete) => {
       remove(PathToFile);
     }
   } catch (err) {
-    console.error("operation failed");
+    console.error("Operation failed");
   }
 };
